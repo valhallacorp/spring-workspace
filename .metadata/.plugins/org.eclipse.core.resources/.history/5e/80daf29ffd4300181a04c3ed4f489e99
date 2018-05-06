@@ -1,0 +1,9 @@
+package br.edu.up.jpa.dominio;
+
+public class Cliente {
+	
+	private Integer Id;
+	
+	private Cliente Pessoa;
+
+}

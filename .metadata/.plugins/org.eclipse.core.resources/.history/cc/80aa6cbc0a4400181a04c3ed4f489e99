@@ -1,0 +1,50 @@
+package br.edu.up.jpa.dominio;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ordem_venda")
+public class OrdemVenda {
+	
+	@Id
+	@GeneratedValue
+	private Integer Id;
+	
+	@Embedded
+	private Cliente Cliente;
+	
+	@Embedded
+	private Regiao Regiao;
+	
+	@Embedded
+	private CartaoDeCredito CartaoDeCredito;
+	
+	@Embedded
+	private Cambio Cambio;
+	
+	@Column
+	private Date DataOrdem;
+	
+	@Column
+	private Date DataVencimento;
+	
+	@Column
+	private Date DataEnvio;
+	
+	@Column
+	private String Status;
+	
+	@Column
+	private String EndCobranca;
+	
+	@Column
+	private String EndEntrega;
+
+}

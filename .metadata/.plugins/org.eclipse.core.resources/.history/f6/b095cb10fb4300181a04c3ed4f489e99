@@ -1,0 +1,39 @@
+package br.edu.up.jpa.dominio;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Regiao")
+public class Regiao {
+	
+	@Id
+	@GeneratedValue
+	private Integer Id;
+	
+	@Column
+	private String Nome;
+	
+	@Column
+	private Integer DDD;
+	
+	@Column
+	private String Grupo;
+	
+	@Column
+	private String VendasTA; //total de vendas anual
+	
+	@Column
+	private String VendasUA; // total de vendas ultimo ano
+	
+	@Column
+	private String CustoTA; //custo total anual
+	
+	@Column
+	private String CustoUA; // custo total ultimo ano
+	
+
+}

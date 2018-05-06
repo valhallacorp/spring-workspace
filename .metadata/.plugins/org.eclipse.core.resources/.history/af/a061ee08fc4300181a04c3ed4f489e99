@@ -1,0 +1,24 @@
+package br.edu.up.jpa.dominio;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "produto")
+public class Produto {
+
+	@Id
+	@GeneratedValue
+	private Integer Id;
+	
+	
+	@Column
+	private String Nome;
+	
+	@Column
+	private String Codigo;
+	
+}
