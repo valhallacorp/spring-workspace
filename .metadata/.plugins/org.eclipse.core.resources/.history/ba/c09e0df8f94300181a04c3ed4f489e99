@@ -1,9 +1,0 @@
-package br.edu.up.jpa.dominio;
-
-public class Loja {
-	
-	private Integer Id;
-	
-	private String Nome;
-
-}
