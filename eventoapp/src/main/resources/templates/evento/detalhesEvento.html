@@ -1,20 +1,29 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
 <head>
-      Import Google Icon Font
+      <!-- Import Google Icon Font -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-      Import materialize.css
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+      <!-- Import materialize.css -->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
 
-      Let browser know website is optimized for mobile
+      <!-- Let browser know website is optimized for mobile -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	  <title>Eventos App</title>   
 </head>
 	  
 <body>
-	<h1>Evento</h1>
-	<h3><a class="waves-effect waves-light btn" href="/eventos"><i class="material-icons left">format_list_bulleted</i>Lista de Eventos</a></h3>
+	<nav>
+		<div class="nav-wrapper" style="background-color: grey">
+		    <a class="brand-logo" style="padding-left: 5px">Evento</a>
+		    <ul id="nav-mobile" class="right hide-on-med-and-down">
+		      <li><a class="waves-effect waves-light btn" href="/eventos"><i class="material-icons left">format_list_bulleted</i>Lista de Eventos</a>
+		      <li><a href="">sass</a></li>
+		      <li><a href="">sass</a></li>
+		    </ul>
+		 </div>
+	</nav>
+	
 	<div th:each="evento : ${evento}" class="container">
 		<div class="row card-panel lighten-5 z-depth-1 container">
 			<div class="card-image waves-effect waves-block waves-light col s4 circle">
@@ -24,11 +33,11 @@
 				<span class="card-title activator grey-text text-darken-4" ><i class="material-icons right">more_vert</i></span>
 			</div>
 			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-				<p><label for="nome">Nome: </label><span th:text="${evento.nome}"></span></p>
-				<p><label for="nome">Local: </label><span th:text="${evento.local}"></span></p>
-				<p><label for="nome">Data: </label><span th:text="${evento.data}"></span></p>
-				<p><label for="nome">Horario: </label><span th:text="${evento.horario}"></span></p>
+				
+				<p><label for="nome">Nome: </label><span style="font-weight: 900; font-style: italic" th:text="${evento.nome}"></span></p>
+				<p><label for="nome">Local: </label><span style="font-style: italic" th:text="${evento.local}"></span></p>
+				<p><label for="nome">Data: </label><span style="font-style: italic" th:text="${evento.data}"></span></p>
+				<p><label for="nome">Horario: </label><span style="font-style: italic" th:text="${evento.horario}"></span></p>
 			</div>
 		</div>
 		
@@ -42,78 +51,31 @@
 		
 	</div>
 	
-	<div class="container">
-	
-		<h5>Lista de Convidados: </h5>
-		
-		<div th:each="convidado : ${convidados}">
-			
-		</div>
-	
-	</div>
-	
-	JavaScript at end of body for optimized loading
-    
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-</body>
-
-
-</html> -->
-
-
-
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-	<title>EventosApp</title>
-	 <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link rel="stylesheet" href="style/styleCss.css"/>
-</head>
-<body>
-	
-	<header>
-		<nav class="menu">
-		    <div class="nav-wrapper">
-		      <a href="/eventos" class="brand-logo">Lista de Eventos</a>
-		      <ul id="nav-mobile" class="right hide-on-med-and-down">
-		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar evento</a></li>
-		      </ul>
-		    </div>
-		</nav>
-	
-	</header>
-	<table class="container">
+	<table class="container tabelaConvidado striped">
 		<thead>
 			<tr>
-				<th>Nome</th>
-				<th>Local</th>
-				<th>Data</th>
-				<th>Horario</th>
+				<th>Nome Convidado</th>
+				<th>RG</th>
 				<th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="evento : ${eventos}">
-				<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td>
-				<td><span th:text="${evento.local}"></span></td>
-				<td><span th:text="${evento.data}"></span></td>
-				<td><span th:text="${evento.horario}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
+			<tr th:each="convidado : ${convidados}">
+				<div class="row">
+					<td><span th:text="${convidado.nomeConvidado}"></span></td>
+					<td><span th:text="${convidado.rg}"></span></td>
+					<td><a class="waves-effect waves-light btn-small" ><!-- th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}" --><i class="material-icons left">delete</i></a></td>
+				</div>
 			</tr>
+			
 		</tbody>
-	
+		
 	</table>
-
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	
+	
+    
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-
+    
 </body>
 
 

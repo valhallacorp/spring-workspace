@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="Modulo_Vendas"/>
+<aop-project name="ModuloVendas"/>
+<aop-project name="teste-java"/>
 <aop-project name="ModuloAdm"/>
 <aop-project name="eventoapp"/>
 </aop-reference-model>
